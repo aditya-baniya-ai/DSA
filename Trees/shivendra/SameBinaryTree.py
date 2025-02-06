@@ -8,15 +8,15 @@ class TreeNode:
 
 class Solution:  
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-
-        def same(p, q):
-            if not p and not q:
-                return True
-            if (p and not q) or (q and not p):
-                return False
-            if p.val != q.val:
-                return False
+        if not p and not q:
+            return True
+        if (p and not q) or (q and not p):
+            return False
+        if p.val != q.val:
+            return False
+        
+        #Recursive step, we want BOTH of the values True to be True
+        return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
             
-            #Recursive step, we want BOTH of the values True to be True
-            return same(p.left,q.left) and same(p.right,q.right)
-        return same(p,q)
+
+           
