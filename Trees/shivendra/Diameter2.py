@@ -11,7 +11,7 @@ class Solution:
         # Variable to store the largest diameter found, we use [0] as list to refer to the same
         #global variable, self. or nonlocal largest_diameter can also be used inside helper func
         # Using a list to allow modification within nested function
-        largest_diameter = [0]  
+        maxD = [0]  
         
         def height(root):
             if not root:
@@ -25,10 +25,11 @@ class Solution:
             diameter = left_height + right_height
             
             # Update the largest diameter found so far
-            largest_diameter[0] = max(largest_diameter[0], diameter)
+            # Or use nonlocal largest_diameter
+            maxD[0] = max(maxD[0], diameter)
             
             # Return the height of the current node
             return max(left_height, right_height) + 1
         
         height(root)  # Start the recursive process
-        return largest_diameter[0]  # Return the maximum diameter found
+        return maxD[0]  # Return the maximum diameter found
