@@ -8,7 +8,7 @@ class TreeNode:
 
 class Solution:  
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        balanced = [True] #list of boolean set to default: True
+        ans = True
 
         def dfs(root):
             if not root:
@@ -17,10 +17,11 @@ class Solution:
             right_height = dfs(root.right)
 
             if abs(left_height - right_height) > 1: #Unbalanced found, false and exit
-                balanced[0] = False 
+                nonlocal ans
+                ans = False
                 return 0 #ends the program
 
             return max(left_height, right_height) +1 #height of the current node
 
         dfs(root) #Start DFS traversal
-        return balanced[0]
+        return ans
