@@ -11,37 +11,35 @@ class TreeNode:
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        # 'res' will store the final result: a list of levels, each level is a list of node values.
-        res = []
+        # If the tree is empty, return an empty list immediately.
+        if root is None:
+            return []
         
-        # 'q' is a deque (double-ended queue) used for efficient FIFO operations in our BFS traversal.
-        q = deque()
-        q.append(root)  # Start with the root node in the queue.
+        # Initialize an empty list 'ans' to store the values of each level.
+        ans = []
+        # Initialize a queue using deque and add the root node.
+        # This queue will help us perform a level order traversal (BFS).
+        q = deque([root])
         
-        # Continue the BFS until there are no more nodes to process.
+        # Continue processing while there are nodes in the queue.
         while q:
-            # 'level' will hold all node values at the current level.
+            # 'level' will store all node values at the current level.
             level = []
-            
-            # The number of nodes at the current level is fixed by the current length of 'q'.
-            # We use 'for i in range(len(q))' to process exactly those nodes.
+            # The number of nodes at the current level is determined by the current length of 'q'.
+            # We iterate exactly that many times to process each node at this level.
             for i in range(len(q)):
-                # Remove a node from the front of the queue.
+                # Remove the node from the front of the queue.
                 node = q.popleft()
-                
-                # If the node is not None, process it.
-                if node:
-                    # Add the node's value to the current level list.
-                    level.append(node.val)
-                    
-                    # Add the node's children (they could be None) to the queue for the next level.
+                # Append the value of the current node to the level list.
+                level.append(node.val)
+                # If the current node has a left child, add it to the queue for the next level.
+                if node.left:
                     q.append(node.left)
+                # If the current node has a right child, add it to the queue for the next level.
+                if node.right:
                     q.append(node.right)
-            
-            # Only add non-empty levels to the final result.
-            # This check prevents adding an extra empty level when there are trailing None values.
-            if level:
-                res.append(level)
+            # After processing all nodes at the current level, add the level list to our answer.
+            ans.append(level)
         
-        # Return the level order traversal result.
-        return res
+        # Return the final list containing each level's node values.
+        return ans
