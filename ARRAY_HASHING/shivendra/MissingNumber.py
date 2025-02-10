@@ -9,5 +9,4 @@ class Solution:
             # The 'if i not in nums' checks whether the current number 'i'
             # is not present in the list 'nums'.
             # If it is not present, then 'i' is the missing number.
-            if i not in nums:
-                return i
+           
