@@ -1,3 +1,11 @@
+""""
+    Check if root none then return 0
+    every node is 1 so we increment 1 for every recursion call
+    then we increment 1 to the max of recursive call of depth of left binary tree and recursive call of right binary tree
+"""
+
+
+
 from collections import deque
 
 class Node:

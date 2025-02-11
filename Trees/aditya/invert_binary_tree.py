@@ -1,3 +1,10 @@
+        
+""""
+    Simple solution is if not root return
+    then invert binary tree means swapping the value of tree. assign left to right and right to left
+    then call recursive function to each side of tree. Should call the same function for both left and right and return node
+"""
+
 class Node:
     def __init__(self, val=0, right=None, left=None):
         self.val = val
