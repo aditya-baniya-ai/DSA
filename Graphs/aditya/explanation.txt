@@ -1,0 +1,16 @@
+bfs
+1. make a visited hashset, queue with start node
+2. while loop until we have queue
+3. we popleft from queue and run another loop for all the neighbours in that node
+4. then we check if the neighbour is in visited or not
+5. if not add them to visited and to the queue
+
+This is level order traversal
+
+
+dfs:
+1. we do recursive approach
+2. we have a visited hasset and curr node
+3. if curr node is in visited then we return 
+4. else we print them and add it to visited
+5. then we run a loop for all the neighbour of the node, and do recursion
