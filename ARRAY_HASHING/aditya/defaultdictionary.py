@@ -3,11 +3,16 @@ from collections import defaultdict
 items = [('a',1),('b',2),('a',3),('b',4),('a',5),('c',6)]
 
 d = defaultdict(list)
+print(d)
 
 for key, value in items:
+    # print(key, value)
     d[key].append(value)
     
 print(dict(d))
+
+
+
 
 
 # count letters in string
