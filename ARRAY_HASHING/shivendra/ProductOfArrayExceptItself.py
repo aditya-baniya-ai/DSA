@@ -1,7 +1,7 @@
 from typing import List
 
 
-def productExceptSelf(self, nums: List[int]) -> List[int]:
+def productExceptSelf(nums):
     # Get the length of the input array.
     n = len(nums)
     
