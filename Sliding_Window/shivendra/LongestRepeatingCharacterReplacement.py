@@ -11,7 +11,7 @@ def characterReplacement(s, k):
             if window_length - max(count.values()) <= k:
                 longest = max (longest, window_length)
 
-            else: #if it is > k: decrease the count of highest freq and slide the l pointer
+            else: #if it is > k: remove the leftmost character and slide the l pointer
                 count[s[l]] -= 1
                 l += 1
 
