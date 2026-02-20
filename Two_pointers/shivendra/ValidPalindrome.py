@@ -1,6 +1,7 @@
 def validPalindrome(s):
 
     l,r=0,len(s)-1
+    s = s.lower()
 
     while l<r:
 
@@ -10,7 +11,7 @@ def validPalindrome(s):
         while r>l and not s[r].isalnum():
             r-=1
 
-        if s[l].lower()!=s[r].lower(): #donot forget to lowercase letters
+        if s[l] != s[r]: #donot forget to lowercase letters
             return False
         
         #Regular pointer sliding
