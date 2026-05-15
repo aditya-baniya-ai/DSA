@@ -1,5 +1,5 @@
 
-def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+def groupAnagrams(strs):
     d = {}
     for word in strs:
         sorted_letters= sorted(word)
